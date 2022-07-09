@@ -107,7 +107,8 @@ jobs:
           name: scanning frontend
           command: |
             npm install
-            npm audit fix --audit-level=critical --force
+            npm audit --audit-level=critical
+            # npm audit fix --audit-level=critical --force
 
   scan-backend:
     docker:
@@ -120,7 +121,8 @@ jobs:
           name: scanning backend
           command: |
             npm install
-            npm audit fix --audit-level=critical --force
+            npm audit --audit-level=critical
+            # npm audit fix --audit-level=critical --force
 
   deploy-infrastructure:
     docker:
