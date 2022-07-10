@@ -95,7 +95,7 @@ jobs:
           name: Testing backend
           command:
             npm install
-            # npm run build
+            npm run build
             npm run test
             
   scan-frontend:
