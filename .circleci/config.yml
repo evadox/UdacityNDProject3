@@ -15,6 +15,10 @@ commands:
             aws s3 rm s3://udapeople-<< parameters.workflow_id >> --recursive
             aws cloudformation delete-stack --stack-name udapeople-backend-<< parameters.workflow_id >> 
             aws cloudformation delete-stack --stack-name udapeople-frontend-<< parameters.workflow_id >>      
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/dev
   revert-migrations:
     description: Revert the last migration if successfully run in the current workflow.
     parameters:
@@ -111,6 +115,10 @@ jobs:
             npm install
             # npm audit --audit-level=critical
             npm audit fix --audit-level=critical --force
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/dev
   scan-backend:
     docker:
       - image: circleci/node:13.8.0
@@ -125,6 +133,10 @@ jobs:
             npm install
             # npm audit --audit-level=critical
             npm audit fix --audit-level=critical --force
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/dev
   deploy-infrastructure:
     docker:
       - image: amazon/aws-cli
@@ -157,6 +169,10 @@ jobs:
               --query 'Reservations[*].Instances[*].PublicIpAddress' \
               --filters "Name=tag:project,Values=udapeople-backend-${CIRCLE_WORKFLOW_ID:0:7}" \
               --output text >> .circleci/ansible/inventory.txt
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/dev
       - persist_to_workspace:
           root: ~/
           paths:
@@ -189,6 +205,10 @@ jobs:
             echo "Taiwo your back-end server public IP address is:"
             cat inventory.txt
             ansible-playbook -i inventory.txt configure-server.yml 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/dev
       - destroy-environment:
           workflow_id: ${CIRCLE_WORKFLOW_ID:0:7}    
 
@@ -212,7 +232,13 @@ jobs:
             then
               sudo apt-get update && sudo apt-get install -y ca-certificates
               curl --insecure https://kvdb.io/CbLDYJDb1QfnCmUeYVsSoo/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '1'
+<<<<<<< HEAD
             fi 
+=======
+
+            fi 
+
+>>>>>>> origin/dev
       - destroy-environment:
           workflow_id: ${CIRCLE_WORKFLOW_ID:0:7} 
 
@@ -252,6 +278,10 @@ jobs:
             npm run build
             tar -czvf artifact-"${CIRCLE_WORKFLOW_ID:0:7}".tar.gz dist
             aws s3 cp dist s3://udapeople-${CIRCLE_WORKFLOW_ID:0:7} --recursive
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/dev
       - destroy-environment:
           workflow_id: ${CIRCLE_WORKFLOW_ID:0:7}
 
@@ -297,6 +327,10 @@ jobs:
             echo "Taiwo your inventory.txt file content is ---"
             cat inventory.txt
             ansible-playbook -i inventory.txt deploy-backend.yml 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/dev
       - destroy-environment:
           workflow_id: ${CIRCLE_WORKFLOW_ID:0:7}
 
@@ -344,6 +378,10 @@ jobs:
               else
                 return 1
               fi
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/dev
       - destroy-environment:
           workflow_id: ${CIRCLE_WORKFLOW_ID:0:7}
           
@@ -376,9 +414,16 @@ jobs:
           
               echo OldWorkflowID: "${OldWorkflowID}"
               echo Current Workflow Id: "${CIRCLE_WORKFLOW_ID:0:7}"  
+<<<<<<< HEAD
       - destroy-environment:
           workflow_id: ${CIRCLE_WORKFLOW_ID:0:7}  
 
+=======
+
+      - destroy-environment:
+          workflow_id: ${CIRCLE_WORKFLOW_ID:0:7}  
+
+>>>>>>> origin/dev
       - revert-migrations:
           workflow_id: ${CIRCLE_WORKFLOW_ID:0:7} 
 
@@ -396,8 +441,15 @@ jobs:
               
             echo $OldWorkflowID >> ~/OldWorkflowID.txt
             cat ~/OldWorkflowID.txt
+<<<<<<< HEAD
             echo OldWorkflowID: "${OldWorkflowID}"
             echo CIRCLE_WORKFLOW_ID "${CIRCLE_WORKFLOW_ID:0:7}"
+=======
+
+            echo OldWorkflowID: "${OldWorkflowID}"
+            echo CIRCLE_WORKFLOW_ID "${CIRCLE_WORKFLOW_ID:0:7}"
+
+>>>>>>> origin/dev
             # export STACKS=($(aws cloudformation list-stacks --query "StackSummaries[*].StackName" \
             #         --stack-status-filter CREATE_COMPLETE --no-paginate --output text)) 
             # echo Stack names: "${STACKS[@]}"
@@ -412,6 +464,10 @@ jobs:
             else
               echo "----Cannot Cleanup----"
             fi
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/dev
       - destroy-environment:
           workflow_id: ${CIRCLE_WORKFLOW_ID:0:7} 
 
@@ -431,6 +487,7 @@ workflows:
           requires: [build-backend]
       - scan-frontend:
           requires: [build-frontend]
+<<<<<<< HEAD
       # - deploy-infrastructure:
       #     requires: [test-frontend, test-backend, scan-frontend, scan-backend]
       #     filters:
@@ -450,3 +507,24 @@ workflows:
       #     requires: [smoke-test]
       # - cleanup:
       #     requires: [cloudfront-update]
+=======
+      - deploy-infrastructure:
+          requires: [test-frontend, test-backend, scan-frontend, scan-backend]
+          filters:
+            branches:
+              only: [master]
+      - configure-infrastructure:
+          requires: [deploy-infrastructure]
+      - run-migrations:
+          requires: [configure-infrastructure]
+      - deploy-frontend:
+          requires: [run-migrations]
+      - deploy-backend:
+          requires: [run-migrations]
+      - smoke-test:
+          requires: [deploy-backend, deploy-frontend]
+      - cloudfront-update:
+          requires: [smoke-test]
+      - cleanup:
+          requires: [cloudfront-update]
+>>>>>>> origin/dev
