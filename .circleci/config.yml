@@ -399,7 +399,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Fetch old stack workflow id
+          name: Removing old stack workflow id
           command: |
             export OldWorkflowID=$(aws cloudformation \
                     list-exports --query "Exports[?Name==\`WorkflowID\`].Value" \
@@ -410,7 +410,7 @@ jobs:
                     --stack-status-filter CREATE_COMPLETE --no-paginate --output text)) 
             echo Stack names: "${STACKS[@]}"
             
-            if [[ "${CIRCLE_WORKFLOW_ID:0:7}" =~ "${OldWorkflowID}" ]]
+            if [[ "${CIRCLE_WORKFLOW_ID:0:7}" != "${OldWorkflowID}" ]]
             then
               echo "------------------------Removing older stacks------------------------"
               aws s3 rm "s3://udapeople-${OldWorkflowID}" --recursive
@@ -418,7 +418,7 @@ jobs:
               aws cloudformation delete-stack --stack-name "udapeople-frontend-${OldWorkflowID}" 
               echo "----Removal completed----"
             else
-              echo "----This is the first stack----"
+              echo "----Cannot Cleanup----"
             fi
 
       - destroy-environment:
