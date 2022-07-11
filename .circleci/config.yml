@@ -402,7 +402,7 @@ jobs:
           name: Removing old stack workflow id
           command: |
         
-            if [[ "${CIRCLE_WORKFLOW_ID:0:7}" != "udapeople-${OldWorkflowID}" ]]
+            if [[ "${CIRCLE_WORKFLOW_ID:0:7}" != "${OldWorkflowID}" ]]
             then
               echo "------------------------Removing older stacks------------------------"
               aws s3 rm "s3://udapeople-${OldWorkflowID}" --recursive
@@ -449,5 +449,5 @@ workflows:
           requires: [deploy-backend, deploy-frontend]
       - cloudfront-update:
           requires: [smoke-test]
-      - cleanup:
-          requires: [cloudfront-update]
+      # - cleanup:
+      #     requires: [cloudfront-update]
