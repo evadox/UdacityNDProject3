@@ -1,20 +1,31 @@
 
-Public Url to GitHub repository (not private) [URL01]
-    https://github.com/Wastecoinng/UdacityNDProjectThree/tree/submit
-
 Public Url to Circle
-    https://app.circleci.com/pipelines/github/Wastecoinng/UdacityNDProjectThree?filter=all
+https://app.circleci.com/pipelines/github/evadox/UdacityNDProject3
 
-Public URL for your S3 Bucket (aka, your green candidate front-end) [URL02]
-    http://udapeople-a708084.s3-website-us-east-1.amazonaws.com
+
+[URL01]
+Public Url to GitHub repository (not private) 
+https://github.com/evadox/UdacityNDProject3/tree/master
+
+
+[URL02]
+Public URL for your S3 Bucket (aka, your green candidate front-end) 
+http://udapeople-b24278d.s3-website-us-east-1.amazonaws.com
     
-Public URL for your CloudFront distribution (aka, your blue production front-end) [URL03]
-    dj836r5xdv41b.cloudfront.net
 
-Public URLs to deployed application back-end in EC2 [URL04]
-    http://18.214.100.89:3030/api/status
-    ec2-18-214-100-89.compute-1.amazonaws.com
+[URL03]
+Public URL for your CloudFront distribution (aka, your blue production front-end) 
+https://d7fzpxgua4set.cloudfront.net
 
 
-Public URL to your Prometheus Server [URL05]
-    http://ec2-34-227-30-192.compute-1.amazonaws.com:9090/targets
+[URL04]
+Public URLs to deployed application back-end in EC2 
+http://54.83.81.223:3030/api/status
+http://ec2-54-83-81-223.compute-1.amazonaws.com
+
+
+[URL05]
+Public URL to your Prometheus Server
+http://44.202.238.95:9090/targets 
+http://ec2-44-202-238-95.compute-1.amazonaws.com:9090/targets
+
