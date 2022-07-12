@@ -77,31 +77,43 @@ jobs:
       - checkout
       - restore_cache:
           keys: [frontend-build]
-      - run: cd frontend
       - run:
           name: Test frontend
           command: 
-            pwd
             cd frontend
             npm install
             npm test
+            pwd
                 
   test-backend:
     docker:
       - image: circleci/node:13.8.0
     steps:
       - checkout
-      - restore_cache:
-          keys: [backend-build]
-      - run: cd backend
       - run:
           name: Test backend
           command:
-            pwd
-            cd frontend
+            cd backend
             npm install
             npm test
-            
+            pwd
+
+  # test-backend:
+  #   docker:
+  #     - image: circleci/node:13.8.0
+  #   steps:
+  #     - checkout
+  #     - restore_cache:
+  #         keys: [backend-build]
+  #     - run: cd backend
+  #     - run:
+  #         name: Test backend
+  #         command:
+  #           pwd
+  #           cd frontend
+  #           npm install
+  #           npm test
+
   scan-frontend:
     docker:
       - image: circleci/node:13.8.0
