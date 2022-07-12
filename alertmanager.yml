@@ -1,0 +1,12 @@
+global:
+  resolve_timeout: 1m
+  slack_api_url: 'https://hooks.slack.com/services/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'
+
+route:
+  receiver: 'slack-notifications'
+
+receivers:
+- name: 'slack-notifications'
+  slack_configs:
+   - channel: 'monitoring instances'
+     send_resolve: true
