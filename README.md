@@ -63,4 +63,6 @@ Before you submit your project, please check your work against the project rubri
 
 [License](LICENSE.md)
 
-[![<ORG_NAME>](https://circleci.com/<VCS>/<ORG_NAME>/<PROJECT_NAME>.svg?style=svg)](<LINK>)
+### Circleci
+[![CircleCI](https://circleci.com/gh/cocofemi/udacity_ci-cd_project/tree/master.svg?style=svg)](https://circleci.com/gh/evadox/UdacityNDProject3/tree/master)
+
