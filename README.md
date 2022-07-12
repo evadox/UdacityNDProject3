@@ -62,3 +62,5 @@ Before you submit your project, please check your work against the project rubri
 ### License
 
 [License](LICENSE.md)
+
+[![<ORG_NAME>](https://circleci.com/<VCS>/<ORG_NAME>/<PROJECT_NAME>.svg?style=svg)](<LINK>)
