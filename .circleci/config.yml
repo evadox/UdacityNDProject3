@@ -80,7 +80,7 @@ jobs:
       - run:
           name: Test frontend
           command: 
-            cd "frontend"
+            cd frontend\
             npm install
             npm test
             pwd
@@ -93,7 +93,7 @@ jobs:
       - run:
           name: Test backend
           command:
-            cd "backend"
+            cd backend\
             npm install
             npm test
             pwd
