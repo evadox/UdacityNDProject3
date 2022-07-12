@@ -26,6 +26,6 @@ http://ec2-34-203-40-178.compute-1.amazonaws.com:3030/api/status
 
 [URL05]
 Public URL to your Prometheus Server
-http://3.92.206.46:9090/targets 
-http://ec2-3-92-206-46.compute-1.amazonaws.com:9090/targets
+http://3.84.9.56:9090/targets 
+ec2-3-84-9-56.compute-1.amazonaws.com:9090/targets
 
