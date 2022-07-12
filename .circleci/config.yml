@@ -77,12 +77,10 @@ jobs:
       - checkout
       - restore_cache:
           keys: [frontend-build]
-      - persist_to_workspace:
-          root: ~/
       - run:
           name: Test frontend
           command: 
-            cd frontend
+            cd ~/frontend
             npm install
             npm test
             pwd
@@ -93,13 +91,11 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          keys: [backend-build]
-      - persist_to_workspace:
-          root: ~/          
+          keys: [backend-build]        
       - run:
           name: Test backend
           command:
-            cd backend
+            cd ~/backend
             npm install
             npm test
             pwd
