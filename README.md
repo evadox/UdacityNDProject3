@@ -66,5 +66,4 @@ Before you submit your project, please check your work against the project rubri
 ### Circleci
 [![CircleCI](https://circleci.com/gh/cocofemi/udacity_ci-cd_project/tree/master.svg?style=svg)](https://circleci.com/gh/evadox/UdacityNDProject3/tree/master)
 
-[![CircleCI](https://circleci.com/gh/evadox/UdacityNDProject3/tree/master.svg?style=svg)](https://circleci.com/gh/evadox/UdacityNDProject3/tree/master)
-yes
+
